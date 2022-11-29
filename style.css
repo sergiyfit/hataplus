@@ -81,7 +81,7 @@ a:hover{
 
 .content_container {
     /* max-width: 960rem;  */
-    padding: 15px;
+    padding: 40px;
     margin: auto;   
 }
 
@@ -232,7 +232,7 @@ a:hover{
 .line-devide::before{
     content: "";
     position: absolute;
-    width: 1px;
+    width: 0px;
     height: 51px;
     background-color: #e4e4ec;
     left: -20px;
@@ -361,7 +361,7 @@ p.proposition_text{
 .main_container{
     display: flex;
     justify-content: space-between;    
-    padding: 40px 0 0;
+    padding-top: 40rem;
     flex-wrap: wrap-reverse;
 }
 
@@ -384,14 +384,14 @@ p.proposition_text{
 }
 
 .text_container{
-    line-height: 24px;
+   
     font-size: 14px;
 }
 
 .text_container p{
 
     color: #666;
-
+    line-height: 24px;
 
 }
 
@@ -399,7 +399,6 @@ p.proposition_text{
     color: #fd8300;
     font-weight: bold;
     text-decoration: none;
-    padding: 10px
 }
 .text_container a:hover{
     text-decoration: underline;
@@ -483,6 +482,7 @@ h2{
 .fig_container{
     display: flex;
     column-gap: 15px;
+    row-gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -628,8 +628,12 @@ h2{
  
 .feedback_container{
     font-size: 14px;
-    color: #666666;
+    
     font-family: "Arial";
+}
+
+.feedback_container form{
+    width: 100%;
 }
 
 .feedback_card_container{
@@ -637,9 +641,12 @@ h2{
     column-gap: 30px;
     justify-content: center;
     flex-wrap: wrap;
-    justify-content: spa;
+    justify-content: space-between;
 }
 
+.feedback_card_container p{
+    color: #666666;
+}
 .feedback_card_container h3{
     margin: 0;
     margin-top: 20px;
@@ -660,7 +667,9 @@ h2{
 .feedback_card p{
     line-height: 18px;
 }
-
+.feedback_card_a{
+    color:#666
+}
 .map_container{
     width: 100%;
     height: 300px;
@@ -727,7 +736,9 @@ h2{
     left: -1px;
     border: none;
 }
-
+.feedback_container form p{
+    margin: 0;
+}
 .feedback_container form input{
     box-sizing: border-box;
     padding: 15px;
@@ -811,13 +822,6 @@ h2{
 }
 
 @media screen and (min-width: 471px){
-    .map_container{
-        width: 470px;
-
-    }
-    .input_text{
-        width: 228px;
-    }
     .btn_check_holder{
         display: flex;
         align-content: flex-start;
@@ -845,8 +849,6 @@ h2{
         transform: translateX(0);
     }
     .flex_between{
-        padding-left: 15rem;
-        padding-right: 15rem;
         box-sizing: border-box;
     }
     .nav_container{
@@ -855,9 +857,13 @@ h2{
     .table_holder{
         overflow-x: auto;
     }
-    .table_holder table{
 
+    .feedback_container form p{
+        display: flex;
+        column-gap: 5px;
+        
     }
+
     .feedback_card_container h3{
         margin-top: 0;
         text-align: left;
@@ -868,14 +874,21 @@ h2{
     .footer_container{
         justify-content: space-between;
     }
+    .line-devide::before{
+        width: 1px;
+    }
     .footer_container,
     .content_container {
         max-width: 960rem; 
-        padding: 0rem;
+        padding-left: 0;
+        padding-right: 0;
     }
     .flex_between{
         box-sizing: content-box;
         justify-content: space-between;
+    }
+    .feedback_container form{
+        width: 450px;
     }
     .main_section{
         padding: 0px;
@@ -885,16 +898,19 @@ h2{
     .index_header, .price_header, .feedback_header, h1 ,h2{
         text-align: left;
     }
+    .map_container{
+        width: 470px;
+    
+    }
+    .input_text{
+        width: 228px;
+    }
     .aside{
         position: sticky;
         top: 94rem;
         width: 220rem;
     }
   
-    .text_container p,
-    .text_container a{
-        padding: 0;
-    }
     .fig_container,
     .feedback_card_container{
         justify-content: space-between;
