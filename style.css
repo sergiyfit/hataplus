@@ -81,7 +81,7 @@ a:hover{
 
 .content_container {
     /* max-width: 960rem;  */
-    padding: 40px;
+    padding: 20px;
     margin: auto;   
 }
 
@@ -96,7 +96,7 @@ a:hover{
 
 .nav_container,
 .contact_container{
-    padding: 15rem 0; 
+    /* padding: 15rem 0;  */
     position: relative;
 }
 
@@ -497,7 +497,6 @@ h2{
     margin: 0;
     width: 100%;
     position: relative;
-    padding: 15px;
     box-sizing: border-box;
 }
 
@@ -765,10 +764,11 @@ h2{
 
 .input_textbox{
     padding: 15px;
-    height: 105px;
+    min-height: 105px;
     width: 100%;
     box-sizing: border-box;
-    resize: none;
+    border: #c5c5d4 solid 1rem;
+    resize: vertical;
     margin-bottom: 12px;
 }
 
@@ -830,6 +830,12 @@ h2{
         width: 220px;
         padding: 0;
     }
+    .footer_container,
+    .content_container {
+        max-width: 960rem; 
+        padding-left: 40rem;
+        padding-right: 40rem;
+    }
 }
 
 @media screen and (min-width: 600px){
@@ -870,7 +876,7 @@ h2{
     }
 }
 
-@media screen and (min-width: 965px){
+@media screen and (min-width: 1000px){
     .footer_container{
         justify-content: space-between;
     }
