@@ -887,6 +887,11 @@ h2{
     .content_container {
         max-width: 960rem; 
     }
+    .main_container{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .flex_between{
         box-sizing: content-box;
         justify-content: space-between;
@@ -896,14 +901,14 @@ h2{
     }
     .main_section{
         padding: 0px;
-        max-width: 655px;
+        max-width: 695px;
         flex-wrap: wrap-reverse;
     }
     .index_header, .price_header, .feedback_header, h1 ,h2{
         text-align: left;
     }
     .map_container{
-        width: 400px;
+        width: 470px;
     
     }
     .input_text{
