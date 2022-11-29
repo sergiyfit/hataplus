@@ -876,7 +876,7 @@ h2{
     }
 }
 
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 960px){
     .footer_container{
         justify-content: space-between;
     }
@@ -886,8 +886,6 @@ h2{
     .footer_container,
     .content_container {
         max-width: 960rem; 
-        padding-left: 0;
-        padding-right: 0;
     }
     .flex_between{
         box-sizing: content-box;
@@ -920,5 +918,12 @@ h2{
     .fig_container,
     .feedback_card_container{
         justify-content: space-between;
+    }
+
+    @media screen and (min-width: 1000px){
+        .content_container {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 }
