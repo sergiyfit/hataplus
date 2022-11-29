@@ -539,6 +539,7 @@ h2{
 
 .aside{
     position: sticky;
+    top: 94rem;
     width: 100%;
     margin-bottom: auto;
     color: #fff;
