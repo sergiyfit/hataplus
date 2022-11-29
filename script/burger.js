@@ -3,4 +3,5 @@ const menu = document.querySelector(".header_menu")
 
 burger.addEventListener("click", () => {
     menu.classList.toggle("burger_open_menu")
+    burger.classList.toggle("burger_close")
 })

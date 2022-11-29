@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'Roboto Slab';
-    src: url('../font/RobotoSlab-Bold.woff2') format('woff2'),
-        url('../font/RobotoSlab-Bold.woff') format('woff'),
-        url('../font/RobotoSlab-Bold.ttf') format('truetype');
+    src: url('font/RobotoSlab-Bold.woff2') format('woff2'),
+        url('font/RobotoSlab-Bold.woff') format('woff'),
+        url('font/RobotoSlab-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -15,14 +15,28 @@ html{
 
 body{
     margin: 0;
+    padding-top: 54rem;
+    box-sizing: border-box;
 }
 
 sup{
     font-size: 0.5em;
 }
 
+.wrapper{
+    max-width: 960rem; 
+    margin: auto;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
 nav {
     background-color: #1f1f56;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
 }
 
 .container_shadow{
@@ -43,7 +57,9 @@ nav {
     align-items: flex-end;
     flex-wrap: wrap;
 }
-
+.header_menu{    
+    transform: translateX(-100%);
+}
 .header_menu a{
     display: none;
     text-align: center;
@@ -87,6 +103,9 @@ a:hover{
     justify-content: space-between;
     padding-left: 15px;
     padding-right: 15px;
+
+    position: relative;
+    z-index: 2;
 }
 
 .icon:hover{
@@ -139,20 +158,42 @@ a:hover{
     top: +5px;
 
 }
+.burger_close span{
+    width: 0;
+    height: 0;
+    
+}
+
+.burger_close span::after{
+    top: 0px;
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+.burger_close span::before{
+    top: 0px;
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+}
 
 .burger_open_menu{
+    display: block;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
+    height: 100vh;
     background-color: #1f1f56;
     z-index: 1;
+    transition: all 0.5s ease;
+    transform: translateX(0);
 }
+
 .burger_open_menu li{
     width: 100%;
-    padding: 25rem;
+    padding: 10rem;
     text-align: center;
-    margin-top: 1px;
+    border-top: 1rem solid #666666;
+    box-sizing: border-box;
 }
 .burger_open_menu a{
     display: block;
@@ -335,7 +376,8 @@ p.proposition_text{
    text-align: center;
 }
 
-.price_header{
+.price_header, 
+.feedback_header {
     margin: 40rem 0 21rem;
     text-align: center;
 }
@@ -348,7 +390,7 @@ p.proposition_text{
 .text_container p{
 
     color: #666;
-    padding: 10px;
+    padding: 15px;
 
 }
 
@@ -361,15 +403,20 @@ p.proposition_text{
 .text_container a:hover{
     text-decoration: underline;
 }
-.text_container table{
+
+.table_holder{
+    overflow-x: scroll;
+}
+
+.table_holder table{
     width: 100%;
     margin: 26px auto;
-    overflow:hidden;
-    border-spacing: 0;
+    overflow: hidden;
+    border-collapse: collapse;
     border-radius: 3px;
 }
 
-.text_container thead{
+.table_holder thead{
     background-color: #1f1f56;
     color: #fff;
 
@@ -379,24 +426,28 @@ p.proposition_text{
     font-family: "Roboto Slab";
 }
 
-.text_container tbody{
+.table_holder tbody{
     background-color: #e4e4ec;
     color: #666666;
 }
 
-.text_container td, 
-.text_container th{
+.table_holder td, 
+.table_holder th{
     padding: 13px 21px;
-    border-top:solid 1rem #cecedd;
 }
 
-.text_container tr td:last-child,
-.text_container th:last-child
+.table_holder tr + tr{
+    border-top: 1px solid #cecedd;
+}
+
+.table_holder tr td:last-child,
+.table_holder th:last-child
 {
     text-align: right;
+    white-space: nowrap;
 }
 
-.text_container tbody tr:hover {
+.table_holder tbody tr:hover {
     background-color: #fd8300;
     color: #fff;
 }
@@ -443,8 +494,10 @@ h2{
 
 .fig_card{
     margin: 0;
-    width: 220px;
+    width: 100%;
     position: relative;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .fig_card a{
@@ -475,7 +528,6 @@ h2{
     color: #1f1f56;
     margin: 5px 0;
     font-size: 14px;
-    font-weight: bold;
 }
 .card_name:hover {
     text-decoration: underline;
@@ -486,8 +538,9 @@ h2{
 }
 
 .aside{
+    position: sticky;
     width: 100%;
-    /* margin-bottom: auto; */
+    margin-bottom: auto;
     color: #fff;
     overflow: hidden;
     border-radius: 3px;
@@ -501,6 +554,7 @@ h2{
     font-size: 16px;
     font-weight: 700;
     margin: 0;
+    
 }
 
 .menu_paragraph{
@@ -620,11 +674,48 @@ h2{
     flex-wrap: wrap-reverse;
 }
 
-.btn_check_holder label{
-    display: flex;
-    flex-direction: row;
-    align-items: center ;
-    margin: 0 10px;
+.isAgree{
+    display: none;
+}
+
+.tuned_checkbox{
+    padding-left: 30rem;
+    position: relative;
+    margin: 20rem 0; 
+}
+
+.tuned_checkbox::before{
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 10rem;
+
+    width: 12rem;
+    height: 12rem;
+    
+    border: #1f1f56 solid 1rem;
+    border-radius: 3rem;
+
+}
+
+.isAgree:checked + .tuned_checkbox::after{
+
+    content: "";
+    position: absolute;
+
+    top: 2rem;
+    left: 13rem;
+
+    width: 6rem;
+    height: 6rem;
+
+    border-top: none;
+    border-right: #1f1f56 solid 2rem;
+    border-left:none; 
+    border-bottom: #1f1f56 solid 2rem;
+
+    transform: rotate(45deg);
 }
 
 .feedback_container iframe{
@@ -633,6 +724,7 @@ h2{
     position: absolute;
     top: -80px;
     left: -1px;
+    border: none;
 }
 
 .feedback_container form input{
@@ -680,7 +772,7 @@ h2{
 .footer{
     background-color: #ededf5;
     margin-top: 50px;
-    /* padding: 42px 0 0 10px ; */
+    padding-top: 42px;
 }
 
 .footer_container{
@@ -729,6 +821,10 @@ h2{
         display: flex;
         align-content: flex-start;
     }
+    .fig_card{
+        width: 220px;
+        padding: 0;
+    }
 }
 
 @media screen and (min-width: 600px){
@@ -744,6 +840,9 @@ h2{
     .header_menu a{
         display: inline;
     }
+    .header_menu{
+        transform: translateX(0);
+    }
     .flex_between{
         padding-left: 15rem;
         padding-right: 15rem;
@@ -752,6 +851,12 @@ h2{
     .nav_container{
         justify-content: space-between;
     }
+    .table_holder{
+        overflow-x: auto;
+    }
+    .table_holder table{
+
+    }
     .feedback_card_container h3{
         margin-top: 0;
         text-align: left;
@@ -759,7 +864,9 @@ h2{
 }
 
 @media screen and (min-width: 920px){
-    .footer_container,
+    .footer_container{
+        justify-content: space-between;
+    }
     .footer_container,
     .content_container {
         max-width: 960rem; 
@@ -772,10 +879,10 @@ h2{
     }
     .main_section{
         padding: 0px;
-        max-width: 714px;
+        max-width: 695px;
         flex-wrap: wrap-reverse;
     }
-    .index_header, .price_header, h1 ,h2{
+    .index_header, .price_header, .feedback_header, h1 ,h2{
         text-align: left;
     }
     .price_header{
@@ -784,9 +891,7 @@ h2{
     .aside{
         width: 220rem;
     }
-    .text_container table{
-        overflow-x:scroll;
-    }
+  
     .text_container p,
     .text_container a{
         padding: 0;
