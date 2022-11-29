@@ -81,6 +81,7 @@ a:hover{
 
 .content_container {
     /* max-width: 960rem;  */
+    padding: 15px;
     margin: auto;   
 }
 
@@ -390,7 +391,7 @@ p.proposition_text{
 .text_container p{
 
     color: #666;
-    padding: 15px;
+
 
 }
 
@@ -538,8 +539,7 @@ h2{
 }
 
 .aside{
-    position: sticky;
-    top: 94rem;
+
     width: 100%;
     margin-bottom: auto;
     color: #fff;
@@ -864,17 +864,16 @@ h2{
     }
 }
 
-@media screen and (min-width: 920px){
+@media screen and (min-width: 965px){
     .footer_container{
         justify-content: space-between;
     }
     .footer_container,
     .content_container {
         max-width: 960rem; 
+        padding: 0rem;
     }
     .flex_between{
-        padding-left: 0rem;
-        padding-right: 0rem;
         box-sizing: content-box;
         justify-content: space-between;
     }
@@ -886,10 +885,9 @@ h2{
     .index_header, .price_header, .feedback_header, h1 ,h2{
         text-align: left;
     }
-    .price_header{
-        margin-top: 0;
-    }
     .aside{
+        position: sticky;
+        top: 94rem;
         width: 220rem;
     }
   
